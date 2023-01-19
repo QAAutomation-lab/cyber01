@@ -34,18 +34,18 @@ public class SeleniumUtility {
 	/**
 	 * using this method we can load our property and also open desired browser
 	 */
-	static{
-		filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\testAppData.properties";
-	}
+//	static{
+//		filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\testAppData.properties";
+//	}
 
 	public WebDriver setUp(String browserName, String appUrl) {
-		properties = new Properties();
-		try {
-			fis = new FileInputStream(filePath);
-			properties.load(fis);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		properties = new Properties();
+//		try {
+//			fis = new FileInputStream(filePath);
+//			properties.load(fis);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -113,6 +113,11 @@ public class SeleniumUtility {
 		waitForElementDisplayed(element);
 		setSleepTime(2000);
 		return element.getAttribute(attribute);
+	}
+	
+	public String getTextFromElement(WebElement element) {
+		waitForElementDisplayed(element);
+		return element.getText();
 	}
 
 		/**
@@ -265,5 +270,4 @@ public class SeleniumUtility {
 	public void tearDown() {
 		driver.close();
 	}
-
 }

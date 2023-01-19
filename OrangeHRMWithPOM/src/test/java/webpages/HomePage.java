@@ -14,7 +14,7 @@ public class HomePage extends SeleniumUtility {
 		PageFactory.initElements(driver, this);
 	}	
 	
-	@FindBy(xpath="//span[text()='PIM']")
+	@FindBy(css="ul.oxd-main-menu>li:nth-of-type(2) span")
 	private WebElement pimLink;
 	
 	public void clickOnPIM() {
